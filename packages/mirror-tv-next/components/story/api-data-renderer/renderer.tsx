@@ -10,6 +10,7 @@ type ApiDataRendererPropsType = {
 
 const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
   const parsedContentData: ApiDataBlockBase[] = JSON.parse(contentData)
+  console.log({ parsedContentData })
   return (
     <article>
       {parsedContentData.map((parsedApiData) => {
@@ -48,10 +49,12 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             return (
               <QuoteByBlock
                 key={parsedApiData.id}
+                //@ts-expect-error: in the middle of rebasing
                 data={parsedApiData.content}
               />
             )
 
+            return <UnstyledBlock data={parsedApiData.content} />
           default: {
             const exhaustiveCheck = parsedApiData
             console.error('unhandled apiData type', exhaustiveCheck)
