@@ -6,6 +6,9 @@ export interface SingleRelatedPost {
 }
 
 export interface SinglePost {
+  brief: string
+  briefApiData: string
+  contentApiData: string
   relatedPosts: SingleRelatedPost[]
 }
 
@@ -16,6 +19,9 @@ export interface FetchStoryBySlugResponse {
 const fetchStoryBySlug = gql`
   query fetchStoryBySlug($slug: String!) {
     allPosts(where: { slug: $slug, state_not_in: invisible }) {
+      brief
+      briefApiData
+      contentApiData
       relatedPosts(where: { state: published }) {
         slug
         name
