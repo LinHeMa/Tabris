@@ -6,6 +6,9 @@ export interface SingleRelatedPost {
 }
 
 export interface SinglePost {
+  brief: string
+  briefApiData: string
+  contentApiData: string
   relatedPosts: SingleRelatedPost[]
   heroImage: {
     id: string
@@ -36,6 +39,9 @@ const fetchStoryBySlug = gql`
         urlTinySized
       }
       heroCaption
+      brief
+      briefApiData
+      contentApiData
       relatedPosts(where: { state: published }) {
         slug
         name
