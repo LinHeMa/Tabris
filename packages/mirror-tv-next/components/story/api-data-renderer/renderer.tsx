@@ -1,3 +1,4 @@
+import BlockquoteBlock from './block-renderer/blockquote-block'
 import HeadersBlock from './block-renderer/headers-block'
 import { type ApiDataBlockBase, ApiDataBlockType } from './block-renderer/type'
 import UnstyledBlock from './block-renderer/unstyled-block'
@@ -14,7 +15,6 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
       {parsedContentData.map((parsedApiData) => {
         switch (parsedApiData.type) {
           case ApiDataBlockType.Unstyled:
-            return <UnstyledBlock data={parsedApiData.content} />
             return (
               <UnstyledBlock
                 data={parsedApiData.content}
@@ -37,6 +37,14 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
                 key={parsedApiData.id}
               />
             )
+          case ApiDataBlockType.Blockquote:
+            return (
+              <BlockquoteBlock
+                key={parsedApiData.id}
+                data={parsedApiData.content}
+              />
+            )
+
           default: {
             const exhaustiveCheck = parsedApiData
             console.error('unhandled apiData type', exhaustiveCheck)
