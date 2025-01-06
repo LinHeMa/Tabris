@@ -1,15 +1,22 @@
+@import '/styles/theme/breakpoints';
+@import '/styles/theme/variable';
+
 .blockquoteBlock {
   font-size: 16px;
   font-weight: 500;
   line-height: 28.8px;
   display: flex;
+  padding: 24px 0;
+  @include media-breakpoint-up(md) {
+    padding: 15px 0;
+  }
   blockquote {
-    margin: 0;
-    padding: 0;
     p {
-      margin: 0;
-      padding: 0;
+      padding: 5px 20px;
       color: #014db8;
+      @include media-breakpoint-up(md) {
+        padding: 5px 32px;
+      }
     }
   }
 }
