@@ -1,0 +1,36 @@
+.blockquoteBlock {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28.8px;
+  display: flex;
+  blockquote {
+    margin: 0;
+    padding: 0;
+    p {
+      margin: 0;
+      padding: 0;
+      color: #014db8;
+    }
+  }
+}
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .imageWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    vertical-align: middle;
+    width: 30px;
+    height: 24px;
+    margin-right: 8px;
+  }
+}
+.imageContainer.start {
+  justify-content: flex-start;
+}
+.imageContainer.end {
+  justify-content: flex-end;
+}
