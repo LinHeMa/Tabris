@@ -1,3 +1,4 @@
+import HeadersBlock from './block-renderer/headers-block'
 import { type ApiDataBlockBase, ApiDataBlockType } from './block-renderer/type'
 import UnstyledBlock from './block-renderer/unstyled-block'
 
@@ -14,6 +15,28 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
         switch (parsedApiData.type) {
           case ApiDataBlockType.Unstyled:
             return <UnstyledBlock data={parsedApiData.content} />
+            return (
+              <UnstyledBlock
+                data={parsedApiData.content}
+                key={parsedApiData.id}
+              />
+            )
+          case ApiDataBlockType.HeaderOne:
+            return (
+              <HeadersBlock
+                data={parsedApiData.content}
+                blockType={parsedApiData.type}
+                key={parsedApiData.id}
+              />
+            )
+          case ApiDataBlockType.HeaderTwo:
+            return (
+              <HeadersBlock
+                data={parsedApiData.content}
+                blockType={parsedApiData.type}
+                key={parsedApiData.id}
+              />
+            )
           default: {
             const exhaustiveCheck = parsedApiData
             console.error('unhandled apiData type', exhaustiveCheck)
