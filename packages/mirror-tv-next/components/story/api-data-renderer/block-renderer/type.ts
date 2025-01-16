@@ -5,7 +5,7 @@ enum ApiDataBlockType {
   Blockquote = 'blockquote',
   QuoteBy = 'quoteby',
   HeaderThree = 'header-three',
-  UnorderList = 'unordered-list-item',
+  UnOrderList = 'unordered-list-item',
   OrderList = 'ordered-list-item',
   CodeBlock = 'code-block',
   Divider = 'divider',
@@ -26,14 +26,15 @@ enum ApiDataBlockType {
   Youtube = 'youtube',
   EmbedCode = 'embeddedcode',
 }
+type OrderListData = string[][]
 
 // TODO: 使用interface 因為之後可以利用extends
 type ApiDataBlockBase = {
   id: string
   type: ApiDataBlockType
   styles: Record<string, string>
-  content: string[]
+  content: string[] | OrderListData
   alignment: 'center' | 'left' | 'right'
 }
 
-export { type ApiDataBlockBase, ApiDataBlockType }
+export { type ApiDataBlockBase, ApiDataBlockType, type OrderListData }

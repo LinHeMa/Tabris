@@ -1,7 +1,13 @@
 import BlockquoteBlock from './block-renderer/blockquote-block'
 import HeadersBlock from './block-renderer/headers-block'
 import QuoteByBlock from './block-renderer/quote-by'
-import { type ApiDataBlockBase, ApiDataBlockType } from './block-renderer/type'
+import OrderListBlock from './block-renderer/order-list-block'
+import {
+  type ApiDataBlockBase,
+  ApiDataBlockType,
+  OrderListData,
+} from './block-renderer/type'
+import UnOrderListBlock from './block-renderer/unorder-list-block'
 import UnstyledBlock from './block-renderer/unstyled-block'
 
 type ApiDataRendererPropsType = {
@@ -16,15 +22,12 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
       {parsedContentData.map((parsedApiData) => {
         switch (parsedApiData.type) {
           case ApiDataBlockType.Unstyled:
-            return (
-              <UnstyledBlock
-                data={parsedApiData.content}
-                key={parsedApiData.id}
-              />
-            )
+            return <UnstyledBlock data={parsedApiData.content as string[]} />
+
           case ApiDataBlockType.HeaderOne:
             return (
               <HeadersBlock
+                //@ts-expect-error: in the middle of rebasing
                 data={parsedApiData.content}
                 blockType={parsedApiData.type}
                 key={parsedApiData.id}
@@ -33,6 +36,7 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
           case ApiDataBlockType.HeaderTwo:
             return (
               <HeadersBlock
+                //@ts-expect-error: in the middle of rebasing
                 data={parsedApiData.content}
                 blockType={parsedApiData.type}
                 key={parsedApiData.id}
@@ -42,6 +46,7 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             return (
               <BlockquoteBlock
                 key={parsedApiData.id}
+                //@ts-expect-error: in the middle of rebasing
                 data={parsedApiData.content}
               />
             )
@@ -53,8 +58,14 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
                 data={parsedApiData.content}
               />
             )
-
-            return <UnstyledBlock data={parsedApiData.content} />
+          case ApiDataBlockType.OrderList:
+            return (
+              <OrderListBlock data={parsedApiData.content as OrderListData} />
+            )
+          case ApiDataBlockType.UnOrderList:
+            return (
+              <UnOrderListBlock data={parsedApiData.content as OrderListData} />
+            )
           default: {
             const exhaustiveCheck = parsedApiData
             console.error('unhandled apiData type', exhaustiveCheck)
