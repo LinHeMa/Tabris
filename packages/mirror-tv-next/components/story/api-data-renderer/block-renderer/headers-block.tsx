@@ -6,7 +6,6 @@ type HeadersBlockPropsType = {
 const HeadersBlock = ({ data, blockType }: HeadersBlockPropsType) => {
   const getFirstElement = <T,>(data: T[]) => data[0]
   const blockContentData = getFirstElement(data)
-  console.log({ blockType })
 
   const renderHeader = () => {
     switch (blockType) {
