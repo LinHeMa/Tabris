@@ -1,5 +1,6 @@
 import BlockquoteBlock from './block-renderer/blockquote-block'
 import HeadersBlock from './block-renderer/headers-block'
+import QuoteByBlock from './block-renderer/quote-by'
 import { type ApiDataBlockBase, ApiDataBlockType } from './block-renderer/type'
 import UnstyledBlock from './block-renderer/unstyled-block'
 
@@ -9,7 +10,6 @@ type ApiDataRendererPropsType = {
 
 const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
   const parsedContentData: ApiDataBlockBase[] = JSON.parse(contentData)
-  console.log({ parsedContentData })
   return (
     <article>
       {parsedContentData.map((parsedApiData) => {
@@ -40,6 +40,13 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
           case ApiDataBlockType.Blockquote:
             return (
               <BlockquoteBlock
+                key={parsedApiData.id}
+                data={parsedApiData.content}
+              />
+            )
+          case ApiDataBlockType.QuoteBy:
+            return (
+              <QuoteByBlock
                 key={parsedApiData.id}
                 data={parsedApiData.content}
               />

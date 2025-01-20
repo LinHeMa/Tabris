@@ -3,6 +3,7 @@ enum ApiDataBlockType {
   HeaderOne = 'header-one',
   HeaderTwo = 'header-two',
   Blockquote = 'blockquote',
+  QuoteBy = 'quoteby',
   UnorderList = 'unordered-list-item',
   OrderList = 'ordered-list-item',
   CodeBlock = 'code-block',
