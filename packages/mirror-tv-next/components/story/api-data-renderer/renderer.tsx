@@ -1,6 +1,5 @@
 import BlockquoteBlock from './block-renderer/blockquote-block'
 import HeadersBlock from './block-renderer/headers-block'
-import QuoteByBlock from './block-renderer/quote-by'
 import OrderListBlock from './block-renderer/order-list-block'
 import { type ApiData, ApiDataBlockType } from './block-renderer/type'
 import UnOrderListBlock from './block-renderer/unorder-list-block'
@@ -38,8 +37,6 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             )
           case ApiDataBlockType.Blockquote:
             return <BlockquoteBlock key={apiDataBlock.id} data={apiDataBlock} />
-          case ApiDataBlockType.QuoteBy:
-            return <QuoteByBlock key={apiDataBlock.id} data={apiDataBlock} />
           case ApiDataBlockType.OrderList:
             return <OrderListBlock key={apiDataBlock.id} data={apiDataBlock} />
           case ApiDataBlockType.UnOrderList:

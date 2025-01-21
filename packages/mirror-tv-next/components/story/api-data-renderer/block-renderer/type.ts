@@ -2,7 +2,6 @@ import { type ApiDataBlockquote } from './blockquote-block'
 import { type ApiHeadersBlock } from './headers-block'
 import { type ApiDataInfoBox } from './info-box-block'
 import { ApiDataOrderList } from './order-list-block'
-import { ApiDataQuoteBy } from './quote-by'
 import { type ApiDataUnOrderListBlock } from './unorder-list-block'
 import { type ApiDataUnstyled } from './unstyled-block'
 
@@ -52,7 +51,6 @@ export type ApiDataBlock =
   | ApiDataUnstyled
   | ApiHeadersBlock
   | ApiDataBlockquote
-  | ApiDataQuoteBy
   | ApiDataOrderList
 
 export type ApiData = ApiDataBlock[]
