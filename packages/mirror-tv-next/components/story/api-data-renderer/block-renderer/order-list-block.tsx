@@ -1,12 +1,15 @@
 import styles from './_styles/order-list-block.module.scss'
+import { ApiDataBlockBase, ApiDataBlockType } from './type'
 
-type OrderListBlockProps = {
-  data: string[][]
+export interface ApiDataOrderList extends ApiDataBlockBase {
+  type: ApiDataBlockType.OrderList
+  content: string[][]
+  alignment: 'center'
 }
 
-const OrderListBlock = ({ data }: OrderListBlockProps) => {
-  const getFirstElement = (data: OrderListBlockProps['data']) => data[0]
-  const blockContentData = getFirstElement(data)
+const OrderListBlock = ({ data }: { data: ApiDataOrderList }) => {
+  const getFirstElement = (data: ApiDataOrderList['content']) => data[0]
+  const blockContentData = getFirstElement(data.content)
   return (
     <ol className={styles.orderListBlock}>
       {blockContentData.map((listData, index) => (

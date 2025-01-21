@@ -1,3 +1,11 @@
+import { type ApiDataBlockquote } from './blockquote-block'
+import { type ApiHeadersBlock } from './headers-block'
+import { type ApiDataInfoBox } from './info-box-block'
+import { ApiDataOrderList } from './order-list-block'
+import { ApiDataQuoteBy } from './quote-by'
+import { type ApiDataUnOrderListBlock } from './unorder-list-block'
+import { type ApiDataUnstyled } from './unstyled-block'
+
 enum ApiDataBlockType {
   Unstyled = 'unstyled',
   HeaderOne = 'header-one',
@@ -10,11 +18,12 @@ enum ApiDataBlockType {
   CodeBlock = 'code-block',
   Divider = 'divider',
   Image = 'image',
+  Annotation = 'annotation',
   Video = 'video',
   VideoV2 = 'video-v2',
   Slideshow = 'slideshow',
   SlideshowV2 = 'slideshow-v2',
-  Infobox = 'infobox',
+  InfoBox = 'infobox',
   Audio = 'audio',
   AudioV2 = 'audio-v2',
   Table = 'table',
@@ -29,12 +38,23 @@ enum ApiDataBlockType {
 type OrderListData = string[][]
 
 // TODO: 使用interface 因為之後可以利用extends
-type ApiDataBlockBase = {
+interface ApiDataBlockBase {
   id: string
   type: ApiDataBlockType
-  styles: Record<string, string>
-  content: string[] | OrderListData
+  content: unknown[] | string
   alignment: 'center' | 'left' | 'right'
+  textAlign?: 'center' | 'left'
 }
+
+export type ApiDataBlock =
+  | ApiDataUnOrderListBlock
+  | ApiDataInfoBox
+  | ApiDataUnstyled
+  | ApiHeadersBlock
+  | ApiDataBlockquote
+  | ApiDataQuoteBy
+  | ApiDataOrderList
+
+export type ApiData = ApiDataBlock[]
 
 export { type ApiDataBlockBase, ApiDataBlockType, type OrderListData }

@@ -1,14 +1,17 @@
 import Image from 'next/image'
 import styles from './_styles/blockquote-block.module.scss'
+import { ApiDataBlockBase, ApiDataBlockType } from './type'
 
-type BlockquoteBlockPropsType = {
-  data: string[]
+export interface ApiDataBlockquote extends ApiDataBlockBase {
+  type: ApiDataBlockType.Blockquote
+  content: Array<string>
+  alignment: 'center'
 }
 
-const BlockquoteBlock = ({ data }: BlockquoteBlockPropsType) => {
+const BlockquoteBlock = ({ data }: { data: ApiDataBlockquote }) => {
   const getFirstElement = (data: string[]) => data[0]
   const mergeClasses = (...classes: string[]) => classes.join(' ')
-  const blockContentData = getFirstElement(data)
+  const blockContentData = getFirstElement(data.content)
 
   // 如果 blockContentData 為空，則返回 null
   if (!blockContentData) return null

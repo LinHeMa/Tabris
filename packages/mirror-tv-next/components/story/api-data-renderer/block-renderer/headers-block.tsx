@@ -1,11 +1,19 @@
 import styles from './_styles/headers-block.module.scss'
-type HeadersBlockPropsType = {
-  data: string[]
-  blockType: string
+import { ApiDataBlockType, type ApiDataBlockBase } from './type'
+export interface ApiHeadersBlock extends ApiDataBlockBase {
+  type: ApiDataBlockType.HeaderOne | ApiDataBlockType.HeaderTwo
+  content: Array<string>
+  alignment: 'center'
 }
-const HeadersBlock = ({ data, blockType }: HeadersBlockPropsType) => {
+const HeadersBlock = ({
+  data,
+  blockType,
+}: {
+  data: ApiHeadersBlock
+  blockType: ApiHeadersBlock['type']
+}) => {
   const getFirstElement = <T,>(data: T[]) => data[0]
-  const blockContentData = getFirstElement(data)
+  const blockContentData = getFirstElement(data.content)
 
   const renderHeader = () => {
     switch (blockType) {

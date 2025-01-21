@@ -1,11 +1,15 @@
 import styles from './_styles/unorder-list-block.module.scss'
-type UnOrderListBlockProps = {
-  data: string[][]
+import { ApiDataBlockType, type ApiDataBlockBase } from './type'
+
+export interface ApiDataUnOrderListBlock extends ApiDataBlockBase {
+  type: ApiDataBlockType.UnOrderList
+  content: string[][]
+  alignment: 'center'
 }
 
-const UnOrderListBlock = ({ data }: UnOrderListBlockProps) => {
-  const getFirstElement = (data: UnOrderListBlockProps['data']) => data[0]
-  const blockContentData = getFirstElement(data)
+const UnOrderListBlock = ({ data }: { data: ApiDataUnOrderListBlock }) => {
+  const getFirstElement = (data: ApiDataUnOrderListBlock['content']) => data[0]
+  const blockContentData = getFirstElement(data.content)
   return (
     <ul className={styles.unOrderListBlock}>
       {blockContentData.map((listData, index) => (

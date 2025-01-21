@@ -1,17 +1,16 @@
-type UnstyledBlockPropsType = {
-  data: string[]
-}
 import styles from './_styles/unstyled-block.module.scss'
+import { type ApiDataBlockBase, ApiDataBlockType } from './type'
 
-const UnstyledBlock = ({ data }: UnstyledBlockPropsType) => {
-  const getFirstElement = (data: string[]) => data[0]
-  const blockContentData = getFirstElement(data)
-  // NOTE: if empty string will be seen as line changing.
-  if (!blockContentData) return <br className={styles.brBlock} />
+export interface ApiDataUnstyled extends ApiDataBlockBase {
+  type: ApiDataBlockType.Unstyled
+  content: string
+  alignment: 'center'
+}
+const UnstyledBlock = ({ data }: { data: ApiDataUnstyled }) => {
   return (
     <p
       className={styles.textBlock}
-      dangerouslySetInnerHTML={{ __html: blockContentData }}
+      dangerouslySetInnerHTML={{ __html: data.content }}
     />
   )
 }
