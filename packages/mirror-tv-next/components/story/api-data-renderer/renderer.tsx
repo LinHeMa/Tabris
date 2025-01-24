@@ -5,6 +5,7 @@ import { type ApiData, ApiDataBlockType } from './block-renderer/type'
 import UnOrderListBlock from './block-renderer/unorder-list-block'
 import UnstyledBlock from './block-renderer/unstyled-block'
 import InfoBoxBlock from './block-renderer/info-box-block'
+import EmbedCodeBlock from './block-renderer/embed-code-block'
 
 type ApiDataRendererPropsType = {
   contentData: string
@@ -46,6 +47,8 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             )
           case ApiDataBlockType.InfoBox:
             return <InfoBoxBlock key={apiDataBlock.id} data={apiDataBlock} />
+          case ApiDataBlockType.EmbedCode:
+            return <EmbedCodeBlock key={apiDataBlock.id} data={apiDataBlock} />
           default: {
             const exhaustiveCheck = apiDataBlock
             console.error('unhandled apiData type', exhaustiveCheck)

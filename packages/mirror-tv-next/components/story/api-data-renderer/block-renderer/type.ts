@@ -1,7 +1,8 @@
 import { type ApiDataBlockquote } from './blockquote-block'
+import { type ApiDataEmbedCode } from './embed-code-block'
 import { type ApiHeadersBlock } from './headers-block'
 import { type ApiDataInfoBox } from './info-box-block'
-import { ApiDataOrderList } from './order-list-block'
+import { type ApiDataOrderList } from './order-list-block'
 import { type ApiDataUnOrderListBlock } from './unorder-list-block'
 import { type ApiDataUnstyled } from './unstyled-block'
 
@@ -52,6 +53,7 @@ export type ApiDataBlock =
   | ApiHeadersBlock
   | ApiDataBlockquote
   | ApiDataOrderList
+  | ApiDataEmbedCode
 
 export type ApiData = ApiDataBlock[]
 
