@@ -1,3 +1,4 @@
+import { type ApiDataAudio } from './audio-block'
 import { type ApiDataBlockquote } from './blockquote-block'
 import { type ApiDataEmbedCode } from './embed-code-block'
 import { type ApiHeadersBlock } from './headers-block'
@@ -54,6 +55,7 @@ export type ApiDataBlock =
   | ApiDataBlockquote
   | ApiDataOrderList
   | ApiDataEmbedCode
+  | ApiDataAudio
 
 export type ApiData = ApiDataBlock[]
 

@@ -6,6 +6,7 @@ import UnOrderListBlock from './block-renderer/unorder-list-block'
 import UnstyledBlock from './block-renderer/unstyled-block'
 import InfoBoxBlock from './block-renderer/info-box-block'
 import EmbedCodeBlock from './block-renderer/embed-code-block'
+import AudioBlock from './block-renderer/audio-block'
 
 type ApiDataRendererPropsType = {
   contentData: string
@@ -49,6 +50,8 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             return <InfoBoxBlock key={apiDataBlock.id} data={apiDataBlock} />
           case ApiDataBlockType.EmbedCode:
             return <EmbedCodeBlock key={apiDataBlock.id} data={apiDataBlock} />
+          case ApiDataBlockType.Audio:
+            return <AudioBlock key={apiDataBlock.id} data={apiDataBlock} />
           default: {
             const exhaustiveCheck = apiDataBlock
             console.error('unhandled apiData type', exhaustiveCheck)
