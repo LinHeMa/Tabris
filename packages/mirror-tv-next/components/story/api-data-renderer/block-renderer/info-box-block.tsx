@@ -14,9 +14,7 @@ export interface ApiDataInfoBox extends ApiDataBlockBase {
 const InfoBoxBlock = ({ data }: { data: ApiDataInfoBox }) => {
   const getFirstElement = (data: ApiDataInfoBox['content']) => data[0]
   const blockContentData = getFirstElement(data.content)
-  console.log(JSON.stringify(blockContentData))
   const { title, body } = blockContentData
-  console.log({ InfoBoxBlock: data.content[0] })
   return (
     <div className={styles.infoBoxWrapper}>
       <p className={styles.infoBoxTitle}>{title}</p>

@@ -1,5 +1,9 @@
+@import "/styles/theme/breakpoints";
 .article {
     display: flex;
     flex-direction: column;
     width: calc(100vw - 3rem);
+    @include media-breakpoint-up(lg) {
+        width: 600px;
+    }
 }

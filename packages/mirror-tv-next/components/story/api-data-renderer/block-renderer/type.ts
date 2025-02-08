@@ -1,15 +1,15 @@
-import { ApiDataAnnotation } from './annotation-block'
+import { type ApiDataAnnotation } from './annotation-block'
 import { type ApiDataAudio } from './audio-block'
 import { type ApiDataBlockquote } from './blockquote-block'
 import { type ApiDataEmbedCode } from './embed-code-block'
 import { type ApiHeadersBlock } from './headers-block'
 import { type ApiDataInfoBox } from './info-box-block'
 import { type ApiDataOrderList } from './order-list-block'
-import { ApiDataSlideshow } from './slide-show-block'
+import { type ApiDataSlideshow } from './slide-show-block'
 import { type ApiDataUnOrderListBlock } from './unorder-list-block'
 import { type ApiDataUnstyled } from './unstyled-block'
-import { ApiDataVideo } from './video-block'
-import { ApiDataYoutube } from './youtube-block'
+import { type ApiDataVideo } from './video-block'
+import { type ApiDataYoutube } from './youtube-block'
 
 enum ApiDataBlockType {
   Unstyled = 'unstyled',
