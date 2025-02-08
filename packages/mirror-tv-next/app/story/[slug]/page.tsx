@@ -17,7 +17,6 @@ const StoryPage = async (props: StoryPageTypes) => {
 
   return (
     <div>
-      StoryPage slug is : {params.slug}
       <ApiDataRenderer contentData={contentApiData} />
       <section className={styles.socialAndRelatedWrapper}>
         <ArticleHeroImage

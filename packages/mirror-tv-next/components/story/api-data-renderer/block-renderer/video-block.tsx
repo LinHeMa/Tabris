@@ -1,5 +1,5 @@
 import { type ApiDataBlockBase, ApiDataBlockType } from './type'
-
+import styles from './_styles/video-block.module.scss'
 type VideoContent = {
   id: string
   name: string
@@ -18,7 +18,7 @@ const VideoBlock = ({ data }: { data: ApiDataVideo }) => {
   const videoContent = data.content[0]
 
   return (
-    <div>
+    <div className={styles.videoContainer}>
       <video src={videoContent.url} controls />
     </div>
   )

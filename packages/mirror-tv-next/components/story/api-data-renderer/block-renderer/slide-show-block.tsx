@@ -6,7 +6,7 @@ import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-
+import styles from './_styles/slide-show-block.module.scss'
 import useWindowDimensions from '~/hooks/use-window-dimensions'
 import { ApiDataBlockType, type ApiDataBlockBase } from './type'
 import Image from 'next/image'
@@ -48,40 +48,29 @@ export default function SlideShowBlock({ data }: { data: ApiDataSlideshow }) {
   const slideImages: SlideshowContentPart[] = data.content.map(
     (item) => item[decideDevice(width)]
   )
-  console.log('slideImages', decideDevice(width), slideImages)
+  const swiperModules = [Navigation, Pagination]
+  const swiperClass = styles.swiper
+  const swiperSpaceBetween = 40
+  const swiperSlidesPerView = 1
+  const paginationConfig = {
+    type: 'fraction' as const,
+  }
   return (
     <div>
       <Swiper
-        modules={[Navigation, Pagination]}
-        style={{ padding: '0 40px', maxWidth: '100%' }}
-        spaceBetween={40}
-        slidesPerView={1}
-        pagination={{
-          type: 'fraction',
-        }}
+        modules={swiperModules}
+        className={swiperClass}
+        spaceBetween={swiperSpaceBetween}
+        slidesPerView={swiperSlidesPerView}
+        pagination={paginationConfig}
         navigation
         loop
       >
         {slideImages.map((img) => (
-          <SwiperSlide
-            key={img.url}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <div
-              style={{
-                position: 'relative',
-                width: '100%',
-                aspectRatio: '16/9',
-              }}
-            >
+          <SwiperSlide key={img.url} className={styles.swiperSlide}>
+            <div className={styles.slideShowImageContainer}>
               <Image
-                style={{
-                  objectFit: 'contain',
-                }}
+                className={styles.slideShowImage}
                 src={img.url}
                 alt="slides"
                 fill
