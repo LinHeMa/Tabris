@@ -8,6 +8,7 @@ import InfoBoxBlock from './block-renderer/info-box-block'
 import EmbedCodeBlock from './block-renderer/embed-code-block'
 import AudioBlock from './block-renderer/audio-block'
 import AnnotationBlock from './block-renderer/annotation-block'
+import SlideShowBlock from './block-renderer/slide-show-block'
 
 type ApiDataRendererPropsType = {
   contentData: string
@@ -55,6 +56,8 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             return <AudioBlock key={apiDataBlock.id} data={apiDataBlock} />
           case ApiDataBlockType.Annotation:
             return <AnnotationBlock key={apiDataBlock.id} data={apiDataBlock} />
+          case ApiDataBlockType.Slideshow:
+            return <SlideShowBlock key={apiDataBlock.id} data={apiDataBlock} />
           default: {
             const exhaustiveCheck = apiDataBlock
             console.error('unhandled apiData type', exhaustiveCheck)

@@ -5,6 +5,7 @@ import { type ApiDataEmbedCode } from './embed-code-block'
 import { type ApiHeadersBlock } from './headers-block'
 import { type ApiDataInfoBox } from './info-box-block'
 import { type ApiDataOrderList } from './order-list-block'
+import { ApiDataSlideshow } from './slide-show-block'
 import { type ApiDataUnOrderListBlock } from './unorder-list-block'
 import { type ApiDataUnstyled } from './unstyled-block'
 
@@ -58,6 +59,7 @@ export type ApiDataBlock =
   | ApiDataEmbedCode
   | ApiDataAudio
   | ApiDataAnnotation
+  | ApiDataSlideshow
 export type ApiData = ApiDataBlock[]
 
 export { type ApiDataBlockBase, ApiDataBlockType, type OrderListData }
