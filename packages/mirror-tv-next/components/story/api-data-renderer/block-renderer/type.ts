@@ -1,3 +1,4 @@
+import { ApiDataAnnotation } from './annotation-block'
 import { type ApiDataAudio } from './audio-block'
 import { type ApiDataBlockquote } from './blockquote-block'
 import { type ApiDataEmbedCode } from './embed-code-block'
@@ -56,7 +57,7 @@ export type ApiDataBlock =
   | ApiDataOrderList
   | ApiDataEmbedCode
   | ApiDataAudio
-
+  | ApiDataAnnotation
 export type ApiData = ApiDataBlock[]
 
 export { type ApiDataBlockBase, ApiDataBlockType, type OrderListData }
