@@ -9,6 +9,7 @@ import EmbedCodeBlock from './block-renderer/embed-code-block'
 import AudioBlock from './block-renderer/audio-block'
 import AnnotationBlock from './block-renderer/annotation-block'
 import SlideShowBlock from './block-renderer/slide-show-block'
+import VideoBlock from './block-renderer/video-block'
 
 type ApiDataRendererPropsType = {
   contentData: string
@@ -58,6 +59,8 @@ const ApiDataRenderer = ({ contentData }: ApiDataRendererPropsType) => {
             return <AnnotationBlock key={apiDataBlock.id} data={apiDataBlock} />
           case ApiDataBlockType.Slideshow:
             return <SlideShowBlock key={apiDataBlock.id} data={apiDataBlock} />
+          case ApiDataBlockType.Video:
+            return <VideoBlock key={apiDataBlock.id} data={apiDataBlock} />
           default: {
             const exhaustiveCheck = apiDataBlock
             console.error('unhandled apiData type', exhaustiveCheck)

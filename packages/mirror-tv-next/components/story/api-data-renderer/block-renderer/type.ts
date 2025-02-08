@@ -8,34 +8,20 @@ import { type ApiDataOrderList } from './order-list-block'
 import { ApiDataSlideshow } from './slide-show-block'
 import { type ApiDataUnOrderListBlock } from './unorder-list-block'
 import { type ApiDataUnstyled } from './unstyled-block'
+import { ApiDataVideo } from './video-block'
 
 enum ApiDataBlockType {
   Unstyled = 'unstyled',
   HeaderOne = 'header-one',
   HeaderTwo = 'header-two',
   Blockquote = 'blockquote',
-  QuoteBy = 'quoteby',
-  HeaderThree = 'header-three',
   UnOrderList = 'unordered-list-item',
   OrderList = 'ordered-list-item',
-  CodeBlock = 'code-block',
-  Divider = 'divider',
-  Image = 'image',
   Annotation = 'annotation',
   Video = 'video',
-  VideoV2 = 'video-v2',
   Slideshow = 'slideshow',
-  SlideshowV2 = 'slideshow-v2',
   InfoBox = 'infobox',
   Audio = 'audio',
-  AudioV2 = 'audio-v2',
-  Table = 'table',
-  ColorBox = 'colorbox',
-  BackgroundImage = 'backgroundimage',
-  BackgroundVideo = 'backgroundvideo',
-  RelatedPost = 'relatedpost',
-  SideIndex = 'sideindex',
-  Youtube = 'youtube',
   EmbedCode = 'embeddedcode',
 }
 type OrderListData = string[][]
@@ -60,6 +46,7 @@ export type ApiDataBlock =
   | ApiDataAudio
   | ApiDataAnnotation
   | ApiDataSlideshow
+  | ApiDataVideo
 export type ApiData = ApiDataBlock[]
 
 export { type ApiDataBlockBase, ApiDataBlockType, type OrderListData }
